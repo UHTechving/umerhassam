@@ -47,6 +47,11 @@ background : #E9E9F9;
 	display : block;
 	padding : 0px 10px;
 }
+.header_menu_li .login_item a {
+	color:#c0492f;
+	text-decoration:underline;
+	font-weight:bold
+}
 
 .header_menu_li a {
   color: #000;
@@ -124,7 +129,7 @@ background : #E9E9F9;
 .body_container_even{
 //	min-height : 300px;
 	padding: 50px 10px;
-	background: rgba(238,241,246,0.5);/*#FEFEFE; */
+	background: #E9E9F9;/*rgba(238,241,246,0.5);/*#FEFEFE; */
 	border-top: 1px solid #EBEBF2;
 	border-bottom: 1px solid #EBEBF2;
 }

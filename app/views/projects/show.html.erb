@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @project.icon %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @project.public %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+<h1> Tasks </h1>
+<%= form_with(model: @newTask, local: true) do |form| %>
+  <%= form.text_field :description, id: :task_description %>
+  <%= form.hidden_field :project_id, :value => @project.id %>
+  <%= form.submit %>
+<% end %>
+<div class="tasks_container">
+  <% @tasks.each do |task| %>
+    <div class="task_row">
+	  <div class="task_des">
+	    <%= task.description %>
+	  </div>
+	  <div class="task_options">
+	    <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  </div>
+    </div>
+  <% end %>
+</div>
+
+
+<h1> Notes </h1>
+<%= form_with(model: @newNote, local: true) do |form| %>
+  <%= form.text_area :description, id: :note_description %>
+  <%= form.hidden_field :project_id, :value => @project.id %>
+  <%= form.submit %>
+<% end %>
+<div class="tasks_container">
+  <% @notes.each do |note| %>
+    <div class="task_row">
+	  <div class="task_des">
+	    <%= note.description %>
+	  </div>
+	  <div class="task_options">
+	    <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  </div>
+    </div>
+  <% end %>
+</div>
